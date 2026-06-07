@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(135deg,#ff4d6d,#ff8fab,#ffc2d1);
+}
+
+/* Floating Emojis */
+.floating{
+    position:absolute;
+    font-size:30px;
+    animation:float 8s linear infinite;
+    opacity:0.8;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120px);
+    }
+}
+
+/* Page */
+.page{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* Cake */
+.cake-container{
+    position:relative;
+    margin:20px;
+}
+
+.cake{
+    width:220px;
+    height:120px;
+    background:#ffb703;
+    border-radius:10px;
+    position:relative;
+}
+
+.cake::before{
+    content:'';
+    position:absolute;
+    top:-20px;
+    left:85px;
+    width:50px;
+    height:20px;
+    background:#fff;
+    border-radius:10px;
+}
+
+.candle{
+    width:10px;
+    height:40px;
+    background:white;
+    position:absolute;
+    top:-55px;
+    left:105px;
+}
+
+.flame{
+    width:15px;
+    height:15px;
+    background:gold;
+    border-radius:50%;
+    position:absolute;
+    top:-70px;
+    left:102px;
+    animation:flicker .5s infinite alternate;
+}
+
+@keyframes flicker{
+    from{transform:scale(1);}
+    to{transform:scale(1.2);}
+}
+
+.left-half,.right-half{
+    position:absolute;
+    width:110px;
+    height:120px;
+    background:#ffb703;
+    top:0;
+    display:none;
+}
+
+.left-half{
+    left:0;
+    border-radius:10px 0 0 10px;
+}
+
+.right-half{
+    right:0;
+    border-radius:0 10px 10px 0;
+}
+
+.cut .cake{
+    display:none;
+}
+
+.cut .left-half,
+.cut .right-half{
+    display:block;
+}
+
+.cut .left-half{
+    animation:leftMove 2s forwards;
+}
+
+.cut .right-half{
+    animation:rightMove 2s forwards;
+}
+
+@keyframes leftMove{
+    to{transform:translateX(-120px) rotate(-20deg);}
+}
+
+@keyframes rightMove{
+    to{transform:translateX(120px) rotate(20deg);}
+}
+
+button{
+    padding:15px 30px;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    background:white;
+    color:#ff4d6d;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+/* Page 2 */
+#page2{
+    display:none;
+    padding:20px;
+}
+
+.message{
+    font-size:1.4rem;
+    margin:15px;
+    opacity:0;
+    transform:translateY(20px);
+}
+
+.show{
+    animation:appear 1s forwards;
+}
+
+@keyframes appear{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.gift{
+    font-size:100px;
+    margin-top:20px;
+    animation:bounce 1s infinite alternate;
+}
+
+@keyframes bounce{
+    from{transform:translateY(0);}
+    to{transform:translateY(-15px);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating Emojis -->
+<div class="floating" style="left:5%;animation-duration:8s;">🎈</div>
+<div class="floating" style="left:15%;animation-duration:10s;">❤️</div>
+<div class="floating" style="left:30%;animation-duration:7s;">🎉</div>
+<div class="floating" style="left:45%;animation-duration:9s;">💖</div>
+<div class="floating" style="left:60%;animation-duration:11s;">🎂</div>
+<div class="floating" style="left:75%;animation-duration:8s;">💕</div>
+<div class="floating" style="left:90%;animation-duration:10s;">🎈</div>
+
+<!-- PAGE 1 -->
+<div class="page" id="page1">
+    <h1>🎂 Happy Birthday My Love ❤️</h1>
+
+    <div class="cake-container" id="cakeBox">
+        <div class="cake"></div>
+        <div class="left-half"></div>
+        <div class="right-half"></div>
+
+        <div class="candle"></div>
+        <div class="flame"></div>
+    </div>
+
+    <button onclick="cutCake()">🎂 Cut Cake</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <h1>I Love You Zainab ❤️</h1>
+
+    <div class="message">💖 You are the most beautiful part of my life.</div>
+    <div class="message">🌹 Every moment with you feels magical.</div>
+    <div class="message">🥰 Your smile makes my whole day brighter.</div>
+    <div class="message">💍 I wish all your dreams come true.</div>
+    <div class="message">❤️ Happy Birthday My Queen ❤️</div>
+
+    <!-- Expensive Gift -->
+    <div class="gift">💎</div>
+    <h2>Luxury Diamond Gift For You ✨</h2>
+</div>
+
+<script>
+function confetti(){
+    for(let i=0;i<80;i++){
+        let c=document.createElement("div");
+        c.innerHTML=["🎉","✨","💖","❤️","🎊"][Math.floor(Math.random()*5)];
+        c.style.position="fixed";
+        c.style.left=Math.random()*100+"vw";
+        c.style.top="-50px";
+        c.style.fontSize=(20+Math.random()*20)+"px";
+        c.style.pointerEvents="none";
+
+        document.body.appendChild(c);
+
+        let fall=setInterval(()=>{
+            c.style.top=(parseInt(c.style.top)+5)+"px";
+        },20);
+
+        setTimeout(()=>{
+            clearInterval(fall);
+            c.remove();
+        },4000);
+    }
+}
+
+function cutCake(){
+    document.getElementById("cakeBox").classList.add("cut");
+    confetti();
+
+    setTimeout(()=>{
+        document.getElementById("page1").style.display="none";
+        document.getElementById("page2").style.display="flex";
+
+        let msgs=document.querySelectorAll(".message");
+        msgs.forEach((m,i)=>{
+            setTimeout(()=>{
+                m.classList.add("show");
+            },i*1500);
+        });
+
+    },3000); // 3 second delay
+}
+</script>
+
+</body>
+</html>
